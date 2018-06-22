@@ -7,7 +7,7 @@ $(document).ready(function(){
   var hash = window.location.hash.substr(1);
 
   if (hash == "") {
-    window.location = "https://accounts.spotify.com/authorize?redirect_uri=https://drdito.github.io/spotifytest&client_id=5f86c462170f4cbf8c03daa0c4d71ede&response_type=token"
+    window.location = "https://accounts.spotify.com/authorize?redirect_uri=https://drdito.github.io/spotifytest/&client_id=5f86c462170f4cbf8c03daa0c4d71ede&response_type=token"
   }
 
   function parseURLHash () {
