@@ -1,8 +1,3 @@
-//Client ID 5f86c462170f4cbf8c03daa0c4d71ede
-//Client Secret a0b0328c7af8489799684aa03f0c91cc
-
-//https://api.spotify.com/v1
-
 $(document).ready(function(){
   var hash = window.location.hash.substr(1);
 
@@ -10,7 +5,9 @@ $(document).ready(function(){
     window.location = "https://accounts.spotify.com/authorize?redirect_uri=https://drdito.github.io/spotifytest/&client_id=5f86c462170f4cbf8c03daa0c4d71ede&response_type=token"
   }
 
+  //funtion to parse through the url to grab everything from # to &, which will be just the access token
   function gainSpotifyToken(url) {
+    //This array gives us the 3 operators we will use to parse the URL
     var splitters = ["#","=","&"];
     for (var i = 0; i < splitters.length; i++){
       var splitUrl = url.split(splitters[i]);
