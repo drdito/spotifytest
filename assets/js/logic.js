@@ -6,18 +6,22 @@
 $(document).ready(function(){
   var hash = window.location.hash.substr(1);
 
-  if (hash == "") {
+  if (hash === "") {
     window.location = "https://accounts.spotify.com/authorize?redirect_uri=https://drdito.github.io/spotifytest/&client_id=5f86c462170f4cbf8c03daa0c4d71ede&response_type=token"
   }
 
-  function parseURLHash () {
-    var search = location.hash.substring(1);
-    var urlHash = search?JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
-                     function(key, value) { return key===""?value:decodeURIComponent(value) }):{}
-    return urlHash;
+  function gainSpotifyToken(url) {
+    var splitters = ["#","=","&"];
+    for (var i = 0; i < splitters.length; i++){
+      var splitUrl = url.split(splitters[i]);
+      url = splitUrl[1];
+    }
+    return splitUrl[0];
   }
-  urlHash = parseURLHash();
-  var token = urlHash.access_token;
+
+  if (hash !== ""){
+    var token = gainSpotifyToken(window.location);  
+  }
 
   
 
