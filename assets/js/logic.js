@@ -20,7 +20,7 @@ $(document).ready(function(){
   }
 
   if (hash !== ""){
-    var token = gainSpotifyToken(window.location.href);  
+    var token = gainSpotifyToken(window.location.href.toString());  
   }
 
   
